@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import Site from "./components/Site";
+import Tree from "./components/Tree";
+import Tutorial from "./components/Tutorial";
+import { SiteContext } from "./components/SiteContext";
+import Node from "./helpers/Tree";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+// import Test from "./components/Test";
+const client = new ApolloClient({
+  uri: "http://localhost:3001/graphql",
+  cache: new InMemoryCache(),
+});
 
 function App() {
+  const [site, setSite] = useState(<></>);
+  const [currentId, setCurrentId] = useState(1);
+  const [parentId, setParentId] = useState(0);
+  const [show, setShow] = useState(false);
+  const [tutorial, setTutorial] = useState('introduction');
+  const [tree, setTree] = useState(new Node(0, null, "Starter", {}, []));
+  const defaultSite = <article></article>;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <SiteContext.Provider
+          value={{
+            site: site || defaultSite,
+            setSite,
+            tree,
+            setTree,
+            currentId,
+            setCurrentId,
+            parentId,
+            setParentId,
+            show,
+            setShow,
+            tutorial,
+            setTutorial,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {/* <Test/> */}
+          <Site />
+          <Tree />
+          
+        </SiteContext.Provider>
+      </BrowserRouter>
+    </ApolloProvider>
   );
 }
 
