@@ -6,17 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd client && npm run start",
+    "build": "cd client && npm run build",
     "dev": "concurrently \"cd server && npm run watch\" \"npm run start\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "compass": "^0.1.1",
     "compass-mixins": "^0.12.12",
     "concurrently": "^7.6.0",
     "fs": "^0.0.1-security",
     "gsap": "^3.11.5",
     "jquery": "^3.6.4",
+    "react-bootstrap": "^2.7.2",
+    "react-fontawesome": "^1.7.1",
     "sass": "^1.60.0"
   }
 }

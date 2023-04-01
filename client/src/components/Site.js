@@ -6,8 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-import Stack from "react-bootstrap/Stack";
+import { Button, Modal,Stack } from "react-bootstrap";
 import ReactDOMServer from "react-dom/server";
 import { addComp } from "../helpers/addComp";
 import { searchAndEdit } from "../helpers/searchForEdit";
@@ -192,7 +191,7 @@ export default function Site() {
   const viewTree = (dom) => {
     if (dom) {
       if (dom.children.length) {
-        string += `<li><span className="caret" >${dom.tag}</span><button class='add' id = ${dom.id} >+</button>
+        string += `<li><span className="caret" >${dom.tag}</span><button className='add' id = ${dom.id} >+</button>
         </li><ul className="nested">
         `;
         dom.children.forEach((element) => {
@@ -200,7 +199,7 @@ export default function Site() {
         });
         string += "</ul>";
       } else {
-        string += `<li>${dom.tag}<button class='add' id = ${dom.id} >+</button></li>`;
+        string += `<li>${dom.tag}<button className='add' id = ${dom.id} >+</button></li>`;
       }
       return string;
     }
@@ -369,12 +368,7 @@ export default function Site() {
             </Stack>
             <span>
               <Tutorial />
-              {/* <form type="submit"> */}
-              {/* <input type="text" onChange={handleProps} /> */}
-              {/* <Button type="submit" onClick={handlePropSubmit}>
-                  Set Props
-                </Button> */}
-              {/* </form> */}
+
             </span>
           </div>
         </div>
