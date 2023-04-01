@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.7.11",
     "bootstrap": "^5.2.3",
     "compass": "^0.1.1",
     "compass-mixins": "^0.12.12",
