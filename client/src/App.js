@@ -10,7 +10,7 @@ import Node from "./helpers/Tree";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // import Test from "./components/Test";
 const client = new ApolloClient({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
   cache: new InMemoryCache(),
 });
 
