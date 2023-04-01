@@ -21,6 +21,7 @@
     "jquery": "^3.6.4",
     "react-bootstrap": "^2.7.2",
     "react-fontawesome": "^1.7.1",
+    "react-scripts": "^5.0.1",
     "sass": "^1.60.0"
   }
 }
