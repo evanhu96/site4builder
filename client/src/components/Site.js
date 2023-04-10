@@ -41,36 +41,14 @@ export default function Site() {
     setShow,
   } = useContext(SiteContext);
   const [siteName, setSiteName] = useState("");
-  const {
-    loading: loadingAllSites,
-    data: dataAllSites,
-    error: errorAllSites,
-  } = useQuery(GET_SITES);
+
   const {
     loading: loadingSite,
     data: dataSite,
     error: errorSite,
     refetch: refetchSite,
   } = useQuery(GET_SITE);
-  const [
-    createSite,
-    { data: createData, loading: createLoading, error: createError },
-  ] = useMutation(CREATE_SITE, {
-    variables: { name: "", elements: [] },
-  });
-  const handleSave = () => {
-    if (siteName in sites) {
-      updateSite({ name: siteName, elements: currentList });
-    } else {
-      createSite({ name: siteName, elements: currentList });
-    }
-  };
-  const [
-    updateSite,
-    { data: updateData, loading: updateLoading, error: updateError },
-  ] = useMutation(UPDATE_SITE, {
-    variables: { name: "", elements: [] },
-  });
+
   const { loading, data, error, refetch } = useQuery(GET_COMPONENT, {
     variables: { tag: "Navigation" },
   });
@@ -87,14 +65,7 @@ export default function Site() {
   if (data) {
     // console.log(data);
   }
-  const sites = [];
-  // if(dataAllSites.getSite){
-  //   console.log(dataAllSites)
-  //   dataAllSites.sites.forEach((site) => {
-  //     console.log(site);
-  //     sites.push(site.name)
-  //   })
-  // }
+  
 
   const [site, setSite] = useState("");
   const [imports, setImports] = useState([]);
@@ -293,7 +264,7 @@ export default function Site() {
               value={siteName}
               onChange={handleInputChange}
             ></input>
-            <Button style={{ backgroundColor: "#66FF99" }} onClick={handleSave}>
+            <Button style={{ backgroundColor: "#66FF99" }} onClick={'handleSave'}>
               Save
             </Button>
           </form>
