@@ -62,8 +62,9 @@ export default function Tutorial() {
         <h1>That's it!</h1>
         <p>
           Now you know how to use Pro-Site-Builder! Our team (...of one) is
-          continuing to add different components and different styles to maximize
-          creative options and minimize edits needed after creating a site.{" "}
+          continuing to add different components and different styles to
+          maximize creative options and minimize edits needed after creating a
+          site.{" "}
         </p>
         <hr />
         <p>

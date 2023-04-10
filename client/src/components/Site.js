@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Modal,Stack } from "react-bootstrap";
+import { Button, Modal, Stack } from "react-bootstrap";
 import ReactDOMServer from "react-dom/server";
 import { addComp } from "../helpers/addComp";
 import { searchAndEdit } from "../helpers/searchForEdit";
@@ -368,7 +368,6 @@ export default function Site() {
             </Stack>
             <span>
               <Tutorial />
-
             </span>
           </div>
         </div>

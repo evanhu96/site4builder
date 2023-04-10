@@ -4,11 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Site from "./components/Site";
 import Tree from "./components/Tree";
-import Tutorial from "./components/Tutorial";
 import { SiteContext } from "./components/SiteContext";
 import Node from "./helpers/Tree";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // import Test from "./components/Test";
+
 const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
