@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import {
   faArrowDown,
   faArrowUp,
@@ -12,12 +12,9 @@ import { addComp } from "../helpers/addComp";
 import { searchAndEdit } from "../helpers/searchForEdit";
 import CardComp from "../siteComponents/CardComp";
 import Navigation from "../siteComponents/Navigation";
-import { CREATE_SITE, UPDATE_SITE } from "../utils/mutations";
 import {
   GET_COMPONENT,
-  GET_COMPONENTS,
-  GET_SITE,
-  GET_SITES,
+  GET_COMPONENTS
 } from "../utils/queries";
 import App from "./Body";
 import { SiteContext } from "./SiteContext";
@@ -41,13 +38,6 @@ export default function Site() {
     setShow,
   } = useContext(SiteContext);
   const [siteName, setSiteName] = useState("");
-
-  const {
-    loading: loadingSite,
-    data: dataSite,
-    error: errorSite,
-    refetch: refetchSite,
-  } = useQuery(GET_SITE);
 
   const { loading, data, error, refetch } = useQuery(GET_COMPONENT, {
     variables: { tag: "Navigation" },
@@ -229,12 +219,7 @@ export default function Site() {
     setSite(tmpSite);
     setImports(tmpList);
   }, [currentList]);
-  const handleLoad = () => {
-    refetchSite({ siteName: siteName });
-    if (dataSite) {
-      setCurrentList(dataSite.site.elements);
-    }
-  };
+
   return (
     <div>
       <Stack
@@ -268,7 +253,7 @@ export default function Site() {
               Save
             </Button>
           </form>
-          <Button style={{ backgroundColor: "#66FF99" }} onClick={handleLoad}>
+          <Button style={{ backgroundColor: "#66FF99" }} onClick={'handleLoad'}>
             Load
           </Button>
         </span>
